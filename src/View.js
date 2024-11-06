@@ -18,7 +18,8 @@ const View = ()=>{
       console.log(data);
       setBoard({
         title:data[0].BOARD_TITLE,
-        content: data[0].BOARD_CONTENT     
+        content: data[0].BOARD_CONTENT,
+        image : data[0].IMAGE_PATH
       });
     })
     .catch((e)=> {
@@ -36,6 +37,7 @@ const View = ()=>{
       <h2>{board.title}</h2>
       <h2>본문</h2>      
       {board.content}
+      <img src={`http://localhost:8000/${board.image}`} style={{maxWidth:'300px'}}/>
       <hr/>
       <Button variant="secondary" onClick={()=>{navigate(-1)}}>목록</Button>  
     </div> 
